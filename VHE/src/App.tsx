@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import CostumButton from './compenents/CostumButton'
+import CostumButton  from './compenents/costumButton.tsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,7 +18,7 @@ function App() {
         {(selected) ? "selected" : "not selected"}
       </button>
       <CostumButton text={(selected) ? "selected costum Button" : "not selected costum Button"} func={() => setSelected(!selected)}/>
-
+      <img src="public/VHE.png"/>
     </>
   )
 }
