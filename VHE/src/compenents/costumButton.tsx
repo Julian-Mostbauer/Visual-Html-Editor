@@ -1,5 +1,6 @@
 export default function CostumButton(props:any) {
-    return (
+
+  return (
       <section>
         <button onClick={props.func}>{props.text}</button>
       </section>

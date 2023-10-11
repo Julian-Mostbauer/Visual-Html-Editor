@@ -5,8 +5,8 @@ import CostumButton from './compenents/CostumButton'
 function App() {
   const [count, setCount] = useState(0)
 
-  const [clicked, setClicked] = useState(false)
-
+  const [selected, setSelected] = useState(false)
+  
   return (
     <>
     <div className="card">
@@ -14,7 +14,11 @@ function App() {
           count is {count}
         </button>
       </div>
-      <CostumButton func={setClicked} text={(clicked ? "clicked" : "not clicked")}/>
+      <button onClick={() => setSelected(!selected)}>
+        {(selected) ? "selected" : "not selected"}
+      </button>
+      <CostumButton text={(selected) ? "selected costum Button" : "not selected costum Button"} func={() => setSelected(!selected)}/>
+
     </>
   )
 }
