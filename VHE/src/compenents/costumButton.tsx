@@ -2,7 +2,7 @@ export default function CostumButton(props: any) {
 
   return (
       <section>
-        <button onClick={props.func}>{props.text}</button>
+        <button className="btn btn-success" onClick={props.func}>{props.text}</button>
       </section>
     );
   }
