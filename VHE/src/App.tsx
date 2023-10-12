@@ -1,6 +1,5 @@
+import './App.css'
 import { useState } from 'react'
-//import './App.css'
-import CostumButton from './compenents/costumButton'
 import ToggleButton from './compenents/toggleButton'
 
 function App() {
@@ -9,8 +8,9 @@ function App() {
   
   return (
     <>
-      <ToggleButton text={(selected) ? "selected costum Button" : "not selected costum Button"} func={() => setSelected(!selected)}/>
-
+      <div className="card">
+      <ToggleButton func={() => setSelected(!selected)} state={selected}/>
+      </div>
     </>
   )
 }
