@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react'
-import ToggleButton from './compenents/toggleButton'
+import ToggleButton from './compenents/customButton.tsx'
 
 function App() {
 
