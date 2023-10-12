@@ -1,4 +1,4 @@
-export default function CostumButton(props:any) {
+export default function CostumButton(props: any) {
 
   return (
       <section>
