@@ -1,7 +1,7 @@
 export default function ToggleButton(props:any) {
 
   return (
-      <section>
+      <section className={props.style}>
         <button className={(props.state) ? "btn btn-success" : "btn btn-danger"} onClick={props.func}>{(props.state) ? "on" : "off"}</button>
       </section>
     );
