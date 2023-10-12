@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react'
-import ToggleButton from './compenents/customButton.tsx'
+import ToggleButton from './compenents/ToggleButton.tsx'
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div className="card">
-      <ToggleButton func={() => setSelected(!selected)} state={selected}/>
+      <ToggleButton func={() => setSelected(!selected)} state={selected} />
       </div>
     </>
   )
