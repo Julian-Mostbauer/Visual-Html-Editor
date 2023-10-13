@@ -41,13 +41,6 @@
   padding: 1rem;
 }
 
-.movable_item {
-  padding: 1rem;
-  position: absolute;
-  background-color: #888;
-  border-radius: 5px;
-}
-
 .read-the-docs {
   color: #888;
 }
