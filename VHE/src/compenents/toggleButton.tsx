@@ -1,4 +1,10 @@
-export default function ToggleButton(props:any) {
+interface Prop {
+  func: any;
+  style: string;
+  state: boolean;
+}
+
+export default function ToggleButton(props:Prop) {
 
   return (
       <section className={props.style}>
