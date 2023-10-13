@@ -11,7 +11,7 @@ function App() {
             <MovableItem id={"move2"} />
 
             <div className="card">
-                <RadioCollection count={5}></RadioCollection>
+                <RadioCollection count={5} />
             </div>
         </>
     )
