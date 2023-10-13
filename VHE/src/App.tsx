@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div className="card">
-      <RadioCollection count={4} func={() => setSelected}/>
+      <RadioCollection count={4}/>
       </div>
     </>
   )

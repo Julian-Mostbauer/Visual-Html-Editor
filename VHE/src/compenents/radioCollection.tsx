@@ -2,7 +2,6 @@ import ToggleButton from "./toggleButton";
 import { useState } from 'react'
 
 interface Prop {
-    func: any;
     count: number;
 }
 
