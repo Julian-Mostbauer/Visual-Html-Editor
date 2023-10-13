@@ -2,12 +2,9 @@ import './App.css'
 import { useState } from 'react'
 import ToggleButton from './compenents/toggleButton.tsx'
 import getMouse from './compenents/mouseTracker.tsx'
+import RadioCollection from './compenents/radioCollection.tsx'
 
 function App() {
-
-  const [selected, setSelected] = useState(false)
-  const [selected2, setSelected2] = useState(false)
-  const [selected3, setSelected3] = useState(false)
 
   return (
     <>
@@ -28,6 +25,7 @@ function App() {
         top: `${getMouse().yPos}px`,
       }}>
         <p>aaa</p>
+      <RadioCollection count={4}/>
       </div>
     </>
   )
