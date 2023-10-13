@@ -3,23 +3,13 @@ import './App.css'
 //import ToggleButton from './compenents/toggleButton.tsx'
 import getMouse from './compenents/mouseTracker.tsx'
 import RadioCollection from './compenents/radioCollection.tsx'
+import MoveableItem from './compenents/moveable_item.tsx'
 
 function App() {
     return (
         <>
-            <div>
-                <p>{getMouse().xPos}</p>
-                <p>{getMouse().yPos}</p>
-                <p>{getMouse().pressed ? "on" : "off"}</p>
-            </div>
-
-            <div className="movable_item" style={{ position: "absolute", left: `${getMouse().xPos}px`, top: `${getMouse().yPos}px` }}>
-                <p>abc</p>
-            </div>
-
-            <div className="card">
-                <RadioCollection count={4} />
-            </div>
+            <RadioCollection count={3} tile_mode='right'/>
+            <MoveableItem text={"123"} color="black"/>
         </>
     )
 }

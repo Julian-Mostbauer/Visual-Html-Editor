@@ -1,21 +1,15 @@
+body{
+  background: linear-gradient(180deg, #709255 0%, #7aa954 100%);
+  background-size: 100%;
+  background-position: center;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  background: #172815;
 }
 
 @keyframes logo-spin {
@@ -44,10 +38,29 @@
 .movable_item {
   padding: 1rem;
   position: absolute;
-  background-color: #888;
+  
+  width: 10rem;
+  height: 5rem;
+
+  background: rgb(252,176,64);
+  background: linear-gradient(90deg, rgba(252,176,64,1) 0%, rgba(131,58,180,1) 33%, rgba(253,29,29,1) 66%, rgba(252,176,69,1) 100%);   background-repeat:repeat-x;
+
+  border-style:inset;
+  border-color: black;
   border-radius: 5px;
+  border-width: 4px;
+
+  background-position: -3rem;
+  
+  transition: all 2s ease-in-out;
+}
+
+.movable_item:hover{
+  background-position: 3rem;
+  
+  transition: all 2s ease-in-out;
 }
 
 .read-the-docs {
-  color: #888;
+  color: #ff0000;
 }
