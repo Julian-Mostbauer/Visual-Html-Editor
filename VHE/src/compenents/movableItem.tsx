@@ -36,24 +36,16 @@ export default function MovableItem(props: any) {
     if (dragging == props.id) {
         return (
             <section>
-                <div className={props.id} style={{ marginLeft: "-1em", position: "absolute", left: `${mouse.xPos}px`, top: `${mouse.yPos}px`, padding: "1rem", backgroundColor: "#888", borderRadius: "5px" }}>
-                    <p>Mouse X:{mouse.xPos}</p>
-                    <p>Mouse Y:{mouse.yPos}</p>
-                    <p>Mouse State: {mouse.pressed ? "on" : "off"}</p>
-                    <p>Name: {props.id}</p>
-                    <p>Item is Moving</p>
+                <div className={props.id} style={{ position: "absolute", left: `${mouse.xPos}px`, top: `${mouse.yPos}px`, userSelect: "none" }}>
+                    {props.content}
                 </div>
             </section>
         );
     } else {
         return (
             <section>
-                <div className={props.id} style={{ marginLeft: "-1em", position: "absolute", left: `${getFromLinks(props.id).x}px`, top: `${getFromLinks(props.id).y}px`, padding: "1rem", backgroundColor: "#888", borderRadius: "5px" }}>
-                    <p>Mouse X:{mouse.xPos}</p>
-                    <p>Mouse Y: {mouse.yPos}</p>
-                    <p>Mouse State: {mouse.pressed ? "on" : "off"}</p>
-                    <p>Name: {props.id}</p>
-                    <p>Item is not Moving</p>
+                <div className={props.id} style={{ position: "absolute", left: `${getFromLinks(props.id).x}px`, top: `${getFromLinks(props.id).y}px`, padding: "1rem", userSelect: "none" }}>
+                    {props.content}
                 </div>
             </section>
         );
