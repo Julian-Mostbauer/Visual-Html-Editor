@@ -34,7 +34,7 @@ body{
 .card_item {
   padding: 1rem;
 }
-
+/*
 .movable_item {
   padding: 1rem;
   position: absolute;
@@ -60,7 +60,7 @@ body{
   
   transition: all 2s ease-in-out;
 }
-
+*/
 .read-the-docs {
   color: #ff0000;
 }
