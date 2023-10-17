@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-let lastPressed = false;
-
 export default function getMouse() {
 
     const [mouseX, setMouseX] = useState(0);
@@ -16,12 +14,10 @@ export default function getMouse() {
 
     const mousePressHandler = () => {
         setPressed(true);
-        lastPressed = pressed;
     }
 
     const mouseReleaseHandler = () => {
         setPressed(false);
-        lastPressed = pressed;
     }
 
     const mouseTargetHandler = (event: any) => {
