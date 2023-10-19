@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 interface Prop {
     count: number;
+    tile_mode: string;
 }
 
 function setStateAtIndex(currentStates:any, index:number, set_fn: (a: any) => void){
@@ -21,15 +22,40 @@ export default function RadioCollection(props:Prop){
     }
     const [currentStates, setStates] = useState(initBools);
 
-    return (
-      <ul>
-        {monkeys.map(index => (
-            <ToggleButton 
-            func={() => setStateAtIndex(currentStates, index, setStates)} 
-            state={currentStates[index]} 
-            style="card"/>
-        ))}
-      </ul>
-    );
+
+    if(props.tile_mode == "right"){
+        return (
+          <table>
+            {monkeys.map(index => (
+                <td>
+                    <ToggleButton 
+                    func={() => setStateAtIndex(currentStates, index, setStates)} 
+                    state={currentStates[index]} 
+                    style="card"/>
+                </td>
+                ))}
+                </table>
+        );
+    }else if(props.tile_mode == "down"){
+        return (
+            <table>
+              {monkeys.map(index => (
+                  <ul>
+                      <ToggleButton 
+                      func={() => setStateAtIndex(currentStates, index, setStates)} 
+                      state={currentStates[index]} 
+                      style="card"/>
+                  </ul>
+                  ))}
+                  </table>
+          );
+    }else{
+        return(
+            <>
+                <h1>You fucked up</h1>
+            </>
+        )
+    }
+
 
 }
