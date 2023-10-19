@@ -1,5 +1,5 @@
 interface Prop {
-  func: any;
+  func: Function;
   style: string;
   state: boolean;
 }

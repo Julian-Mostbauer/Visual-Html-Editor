@@ -1,9 +1,9 @@
 import './App.css'
 import { useState } from 'react'
 //import ToggleButton from './compenents/toggleButton.tsx'
-import MovableItem from './compenents/movableItem.tsx'
-import RadioCollection from './compenents/radioCollection.tsx'
-import ToggleButton from './compenents/toggleButton.tsx'
+import MovableItem from './components/movableItem.tsx'
+import RadioCollection from './components/radioCollection.tsx'
+import ToggleButton from './components/toggleButton.tsx'
 
 function App() {
     const [deez, setDeez] = useState(false);
