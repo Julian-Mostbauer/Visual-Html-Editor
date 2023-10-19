@@ -1,3 +1,21 @@
+/* ----------------------------------------------Usage of ToggleButton --------------------------------------------*/
+/*                                                                                                                 */
+/*                                                   Required                                                      */
+/*                                                                                                                 */
+/*                     <ToggleButton func={()=>FUNCTION_ONCLICK} style={STYLE} state={BOOL_STATE} />               */
+/*                                                                                                                 */
+/*                                                    Example                                                      */
+/*                                                                                                                 */
+/*                 <ToggleButton func={()=>toggleButton1()} style={buttonStyle} state={button1Toggled} />          */
+/*                <ToggleButton func={()=>toggleButton2()} style={buttonStyle2} state={button2Toggled} />          */
+/*                                                                                                                 */
+/*                                                   Important                                                     */
+/*                                                                                                                 */
+/*                                   always use all props (STYLE, STATE, ONCLICK)                                  */
+/*                                   functions like a normal button, but is styled                                 */
+/*                                                                                                                 */
+/* --------------------------------------------------------------------------------------------------------------- */
+
 interface Prop {
   func: Function;
   style: string;

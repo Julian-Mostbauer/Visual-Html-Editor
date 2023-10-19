@@ -1,3 +1,21 @@
+/* -------------------------------------------Usage of RadioCollection --------------------------------------------*/
+/*                                                                                                                 */
+/*                                                   Required                                                      */
+/*                                                                                                                 */
+/*                              <RadioCollection count={COUNT} tile_mode='LEFT/RIGHT' />                           */
+/*                                                                                                                 */
+/*                                                    Example                                                      */
+/*                                                                                                                 */
+/*                                   <RadioCollection count={5} tile_mode='right' />                               */
+/*                                   <RadioCollection count={5} tile_mode='down' />                                */
+/*                                                                                                                 */
+/*                                                   Important                                                     */
+/*                                                                                                                 */
+/*                                    always use the count and the tile_mode prop                                  */
+/*                                  tile_mode has "right" or "down" and nothing else                               */
+/*                                                                                                                 */
+/* --------------------------------------------------------------------------------------------------------------- */
+
 import ToggleButton from "./toggleButton";
 import { useState } from 'react'
 

@@ -1,3 +1,16 @@
+/* --------------------------------------------Usage of MouseTracker ----------------------------------------------*/
+/*                                                                                                                 */
+/*                                                    Example                                                      */
+/*                                                                                                                 */
+/*                                          const mouse = getMouse();                                              */
+/*                                          int mouseX = mouse.xPos;                                               */
+/*                                                                                                                 */
+/*                                                   Important                                                     */
+/*                                                                                                                 */
+/*                               Always Instance the getMouse() object to avoid Errors                             */
+/*                                                                                                                 */
+/* --------------------------------------------------------------------------------------------------------------- */
+
 import { useEffect, useState } from "react";
 
 export default function getMouse() {
