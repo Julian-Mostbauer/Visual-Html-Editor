@@ -1,0 +1,30 @@
+{
+    "elements": [
+        {
+            "button1": [
+                {
+                    "type": "button",
+                    "position_x": 0,
+                    "position_y": 0,
+                    "width": 10,
+                    "height": 10
+                },
+                {
+                    "content": "Hello, world"
+                }
+            ],
+            "button2": [
+                {
+                    "type": "button",
+                    "position_x": 10,
+                    "position_y": 10,
+                    "width": 10,
+                    "height": 10
+                },
+                {
+                    "content": "Bye, world"
+                }
+            ]
+        }
+    ]
+}

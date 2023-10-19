@@ -22,6 +22,7 @@ export default function RadioCollection(props:Prop){
     }
     const [currentStates, setStates] = useState(initBools);
 
+
     if(props.tile_mode == "right"){
         return (
           <table>
