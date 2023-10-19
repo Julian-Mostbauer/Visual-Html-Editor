@@ -53,4 +53,3 @@ export class MouseInfoSave {
         this.target = target;
     }
 }
-
