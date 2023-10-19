@@ -1,8 +1,31 @@
+/* ----------------------------------------------Usage of MovableItem ---------------------------------------------*/
+/*                                                                                                                 */
+/*                                                   Required                                                      */
+/*                                                                                                                 */
+/*                        <MovableItem id={"NAME"} content={<div className={"NAME"}></div>}>                       */
+/*                                                                                                                 */
+/*                                                   Examples                                                      */
+/*                                                                                                                 */
+/*  <MovableItem id={"widget1"} content={<div className={"widget1"} style={{margin: 5px}}>Hello, Im a Div</div>}>  */
+/*         <MovableItem id={"p2"} content={<p className={"p2"} style={{margin: 5px}}>Hello, Im a P</p>}>           */
+/*                                                                                                                 */
+/*                                                   Important                                                     */
+/*                                                                                                                 */
+/*                        Always set a className identical to the id in the content object                         */
+/*                     Do not set Identical Ids and Always use both the id and the Content prop                    */
+/*                                                                                                                 */
+/* --------------------------------------------------------------------------------------------------------------- */
+
 import getMouse from "./mouseTracker";
 
 const ids: string[] = [];
 const lastPoses: PositionLink[] = [];
-let dragging: string;
+let dragging: string = "";
+
+interface Prop {
+    id: string;
+    content: JSX.Element;
+}
 
 function getFromLinks(id: string) {
     for (let i = 0; i < lastPoses.length; i++) {
@@ -12,7 +35,7 @@ function getFromLinks(id: string) {
     }
 }
 
-export default function MovableItem(props: any) {
+export default function MovableItem(props: Prop) {
     const mouse = getMouse();
 
     if (!ids.includes(props.id)) {
@@ -24,7 +47,7 @@ export default function MovableItem(props: any) {
         dragging = "";
     }
 
-    if (mouse.target != null && mouse.target.className == props.id && mouse.pressed) {
+    if (mouse.target != null && mouse.target.className == props.id && mouse.pressed && dragging == "") {
         dragging = props.id;
     }
 
@@ -36,7 +59,7 @@ export default function MovableItem(props: any) {
     if (dragging == props.id) {
         return (
             <section>
-                <div className={props.id} style={{ position: "absolute", left: `${mouse.xPos}px`, top: `${mouse.yPos}px`, userSelect: "none" }}>
+                <div className={props.id} style={{ position: "absolute", left: `${mouse.xPos}px`, top: `${mouse.yPos}px`, userSelect: "none", padding: "1rem", margin: "-5rem", transition: "all", cursor: "grabbing"}}>
                     {props.content}
                 </div>
             </section>
@@ -44,12 +67,12 @@ export default function MovableItem(props: any) {
     } else {
         return (
             <section>
-                <div className={props.id} style={{ position: "absolute", left: `${getFromLinks(props.id).x}px`, top: `${getFromLinks(props.id).y}px`, padding: "1rem", userSelect: "none" }}>
+                <div className={props.id} style={{ position: "absolute", left: `${getFromLinks(props.id).x}px`, top: `${getFromLinks(props.id).y}px`, padding: "1rem", userSelect: "none", margin: "-5rem", transition: "all", cursor: "grab"}}>
                     {props.content}
                 </div>
             </section>
         );
-    }    
+    }
 }
 
 class PositionLink {

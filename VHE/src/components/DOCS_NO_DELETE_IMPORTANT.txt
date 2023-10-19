@@ -1,0 +1,70 @@
+*------------------------------------------------------------------*
+| This File Contains Comments for Code Explanations, DO NOT DELETE |
+*------------------------------------------------------------------*
+
+/* ----------------------------------------------Usage of MovableItem ---------------------------------------------*/
+/*                                                                                                                 */
+/*                                                   Required                                                      */
+/*                                                                                                                 */
+/*                        <MovableItem id={"NAME"} content={<div className={"NAME"}></div>}>                       */
+/*                                                                                                                 */
+/*                                                   Examples                                                      */
+/*                                                                                                                 */
+/*  <MovableItem id={"widget1"} content={<div className={"widget1"} style={{margin: 5px}}>Hello, Im a Div</div>}>  */
+/*         <MovableItem id={"p2"} content={<p className={"p2"} style={{margin: 5px}}>Hello, Im a P</p>}>           */
+/*                                                                                                                 */
+/*                                                   Important                                                     */
+/*                                                                                                                 */
+/*                        Always set a className identical to the id in the content object                         */
+/*                     Do not set Identical Ids and Always use both the id and the Content prop                    */
+/*                                                                                                                 */
+/* --------------------------------------------------------------------------------------------------------------- */
+
+/* --------------------------------------------Usage of MouseTracker ----------------------------------------------*/
+/*                                                                                                                 */
+/*                                                    Example                                                      */
+/*                                                                                                                 */
+/*                                          const mouse = getMouse();                                              */
+/*                                          int mouseX = mouse.xPos;                                               */
+/*                                                                                                                 */
+/*                                                   Important                                                     */
+/*                                                                                                                 */
+/*                               Always Instance the getMouse() object to avoid Errors                             */
+/*                                                                                                                 */
+/* --------------------------------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------Usage of RadioCollection --------------------------------------------*/
+/*                                                                                                                 */
+/*                                                   Required                                                      */
+/*                                                                                                                 */
+/*                              <RadioCollection count={COUNT} tile_mode='LEFT/RIGHT' />                           */
+/*                                                                                                                 */
+/*                                                    Example                                                      */
+/*                                                                                                                 */
+/*                                   <RadioCollection count={5} tile_mode='right' />                               */
+/*                                   <RadioCollection count={5} tile_mode='down' />                                */
+/*                                                                                                                 */
+/*                                                   Important                                                     */
+/*                                                                                                                 */
+/*                                    always use the count and the tile_mode prop                                  */
+/*                                  tile_mode has "right" or "down" and nothing else                               */
+/*                                                                                                                 */
+/* --------------------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------------Usage of ToggleButton --------------------------------------------*/
+/*                                                                                                                 */
+/*                                                   Required                                                      */
+/*                                                                                                                 */
+/*                     <ToggleButton func={()=>FUNCTION_ONCLICK} style={STYLE} state={BOOL_STATE} />               */
+/*                                                                                                                 */
+/*                                                    Example                                                      */
+/*                                                                                                                 */
+/*                 <ToggleButton func={()=>toggleButton1()} style={buttonStyle} state={button1Toggled} />          */
+/*                <ToggleButton func={()=>toggleButton2()} style={buttonStyle2} state={button2Toggled} />          */
+/*                                                                                                                 */
+/*                                                   Important                                                     */
+/*                                                                                                                 */
+/*                                   always use all props (STYLE, STATE, ONCLICK)                                  */
+/*                                   functions like a normal button, but is styled                                 */
+/*                                                                                                                 */
+/* --------------------------------------------------------------------------------------------------------------- */
