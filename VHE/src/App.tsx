@@ -1,4 +1,5 @@
 import './App.css'
+import { tile_mode } from "./components/enums";
 import { useState } from 'react'
 //import ToggleButton from './compenents/toggleButton.tsx'
 import MovableItem from './components/movableItem.tsx'
@@ -10,7 +11,7 @@ function App() {
 
     return (
         <>
-            <RadioCollection count={4} tile_mode='right'/>
+            <RadioCollection count={4} tile_mode={tile_mode.RIGHT}/>
         
             <MovableItem id={"move1"} content={<div className={"move1"} style={{ backgroundColor: `${deez ? "Green" : "Red"}`, borderRadius: "2em", padding: "2em", color: "White", fontSize: `${deez ? "19px" : "15px"}` }}>Custom style Movable Object With Link to Button</div>} />
             <MovableItem id={"move2"} content={<div className={"move2"} style={{ backgroundColor: "Gray", borderRadius: "1em", padding: "1em", color: "yellow" }}>This is Test Button<ToggleButton func={() => { setDeez(!deez) }} state={deez} style={""} /> Inside Movable Object</div>} />
