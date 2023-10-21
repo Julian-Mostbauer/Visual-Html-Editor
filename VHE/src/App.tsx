@@ -5,33 +5,49 @@ import MovableItem from "./components/movableItem.tsx";
 import RadioCollection from "./components/radioCollection.tsx";
 import ToggleButton from "./components/toggleButton.tsx";
 
+import {getWindowDimensions} from "./components/windowTracker.tsx"
+
 function App() {
   const [deez, setDeez] = useState(false);
 
+  const windowDimension = getWindowDimensions()
+
+  const canvasMinX = windowDimension.xLen * 0.04
+  const canvasMinY = 12 * 16
+  const canvasMaxX = windowDimension.xLen
+  const canvasMaxY = windowDimension.yLen - 170
+
   return (
     <>
-      <RadioCollection count={4} tile_mode={tile_mode.RIGHT} />
-
+      <RadioCollection count={3} tile_mode={tile_mode.RIGHT} />
       <MovableItem
         id={"move1"}
+        minX={canvasMinX}
+        minY={canvasMinY}
+        maxX={canvasMaxX}
+        maxY={canvasMaxY}
         content={
           <div
             className={"move1"}
             style={{
-              backgroundColor: `${deez ? "Green" : "Red"}`,
+              backgroundColor: `${deez ? "Blue" : "Red"}`,
               borderRadius: "2em",
               padding: "2em",
               color: `${deez ? "White" : "Black"}`,
               transition: "all 1s ease-in-out",
-              fontSize: `${deez ? "20px" : "15px"}`,
+              fontSize: `${deez ? "15px" : "15px"}`,
             }}
           >
-            Custom style Movable Object With Link to Button
+            {(deez) ? "Width: " + windowDimension.xLen : "Height : " + windowDimension.yLen}
           </div>
         }
       />
       <MovableItem
         id={"move2"}
+        minX={canvasMinX}
+        minY={canvasMinY}
+        maxX={canvasMaxX}
+        maxY={canvasMaxY}
         content={
           <div
             className={"move2"}
@@ -42,15 +58,14 @@ function App() {
               color: "yellow",
             }}
           >
-            This is Test Button
+            Toggle Between Window Width and Height
             <ToggleButton
               func={() => {
                 setDeez(!deez);
               }}
               state={deez}
               style={""}
-            />{" "}
-            Inside Movable Object
+            />
           </div>
         }
       />
