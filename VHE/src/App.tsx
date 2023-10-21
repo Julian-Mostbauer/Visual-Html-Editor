@@ -15,7 +15,9 @@ function App() {
   const canvasMinX = windowDimension.xLen * 0.04
   const canvasMinY = 12 * 16
   const canvasMaxX = windowDimension.xLen
-  const canvasMaxY = windowDimension.yLen - 170
+  const canvasMaxY = windowDimension.yLen
+
+  
 
   return (
     <>
@@ -42,6 +44,7 @@ function App() {
           </div>
         }
       />
+
       <MovableItem
         id={"move2"}
         minX={canvasMinX}
@@ -69,6 +72,7 @@ function App() {
           </div>
         }
       />
+
     </>
   );
 }

@@ -10,6 +10,7 @@ body{
   text-align: center;
   background: #166088;
   border-radius: 100rem;
+  transition: all 1s ease-in-out;
 }
 
 @keyframes logo-spin {
@@ -29,10 +30,12 @@ body{
 
 .card {
   padding: 1em;
+  transition: all 1s ease-in-out;
 }
 
 .card_item {
   padding: 1rem;
+  transition: all 1s ease-in-out;
 }
 
 .read-the-docs {
@@ -60,4 +63,5 @@ body{
   padding-top: 20rem;
   margin-top: 2rem;
   z-index: -1;
+  transition: all 1s ease-in-out;
 }
