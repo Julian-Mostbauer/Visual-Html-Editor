@@ -1,17 +1,18 @@
+import { tile_mode } from "./enums";
 import ToggleButton from "./toggleButton";
 import { useState } from "react";
 
 interface Prop {
   count: number;
-  tile_mode: string;
+  tile_mode: tile_mode;
 }
 
 function setStateAtIndex(
-  currentStates: any,
+  currentStates: boolean[],
   index: number,
-  set_fn: (a: any) => void
+  set_fn: (a: boolean[]) => void
 ) {
-  let newStates = [...currentStates]; // create a new copy of the array
+  const newStates = [...currentStates]; // create a new copy of the array
   newStates[index] = !newStates[index]; // update the new copy
   set_fn(newStates); // set the new state
 }
@@ -25,40 +26,43 @@ export default function RadioCollection(props: Prop) {
   }
   const [currentStates, setStates] = useState(initBools);
 
-  if (props.tile_mode == "right") {
-    return (
-      <table>
-        {monkeys.map((index) => (
-          <td>
-            <ToggleButton
-              func={() => setStateAtIndex(currentStates, index, setStates)}
-              state={currentStates[index]}
-              style="card"
-            />
-          </td>
-        ))}
-      </table>
-    );
-  } else if (props.tile_mode == "down") {
-    return (
-      <table>
-        {monkeys.map((index) => (
-          <ul>
-            <ToggleButton
-              func={() => setStateAtIndex(currentStates, index, setStates)}
-              state={currentStates[index]}
-              style="card"
-            />
-          </ul>
-        ))}
-      </table>
-    );
-  } else {
-    return (
-      <>
-        <h1>You fucked up</h1>
-      </>
-    );
+  switch (props.tile_mode) {
+    case tile_mode.RIGHT:
+      return (
+        <table>
+          {monkeys.map((index) => (
+            <td>
+              <ToggleButton
+                func={() => setStateAtIndex(currentStates, index, setStates)}
+                state={currentStates[index]}
+                style="card"
+              />
+            </td>
+          ))}
+        </table>
+      );
+
+    case tile_mode.DOWN:
+      return (
+        <table>
+          {monkeys.map((index) => (
+            <ul>
+              <ToggleButton
+                func={() => setStateAtIndex(currentStates, index, setStates)}
+                state={currentStates[index]}
+                style="card"
+              />
+            </ul>
+          ))}
+        </table>
+      );
+
+    default:
+      return (
+        <>
+          <h1>You fucked up</h1>
+        </>
+      );
   }
 }
 /* -------------------------------------------Usage of RadioCollection --------------------------------------------*/
