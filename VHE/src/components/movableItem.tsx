@@ -1,5 +1,5 @@
 import GetMouse, { MouseInfoSave } from "./mouseTracker";
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const ids: string[] = [];
 const lastPoses: PositionLink[] = [];
@@ -50,7 +50,7 @@ export default function MovableItem(props: Prop) {
 
 ///////////////////////////////////////////
 
-const refContainer = useRef<HTMLElement>(null);;
+const refContainer = useRef<HTMLElement>(null);
     const [dimensions, setDimensions] =
         useState({ width: 0, height: 0 });
     useEffect(() => {
