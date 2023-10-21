@@ -4,6 +4,8 @@ import { useState } from "react";
 import MovableItem from "./components/movableItem.tsx";
 import RadioCollection from "./components/radioCollection.tsx";
 import ToggleButton from "./components/toggleButton.tsx";
+import OutputPopup from "./components/outputPopup.tsx";
+
 
 import {getWindowDimensions} from "./components/windowTracker.tsx"
 
@@ -12,16 +14,28 @@ function App() {
 
   const windowDimension = getWindowDimensions()
 
-  const canvasMinX = windowDimension.xLen * 0.04
-  const canvasMinY = 12 * 16
+  const canvasMinX = windowDimension.xLen * 0.04 //Position of the canvas
+  const canvasMinY = 14 * 16 //Position of the canvas
   const canvasMaxX = windowDimension.xLen
   const canvasMaxY = windowDimension.yLen
 
-  
+
+  /*
+  This currently breakes the movable item for some reason, but otherwise works
+  <OutputPopup 
+      text="Compile"
+      content={
+        <h1>test</h1>
+  }/>
+
+  */
 
   return (
     <>
       <RadioCollection count={3} tile_mode={tile_mode.RIGHT} />
+
+      
+
       <MovableItem
         id={"move1"}
         minX={canvasMinX}
@@ -73,8 +87,10 @@ function App() {
         }
       />
 
+
     </>
   );
 }
+
 
 export default App;

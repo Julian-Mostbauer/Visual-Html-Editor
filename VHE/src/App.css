@@ -65,3 +65,27 @@ body{
   z-index: -1;
   transition: all 1s ease-in-out;
 }
+
+.popupButton{
+  background-color: #DBE9EE;
+  border-radius: 1rem;
+  border-style:ridge;
+  border-color: #4F6D7A;
+  transition: all 1s ease-in-out;
+}
+
+.popupButton:hover{
+  background-color: #C0D6DF;
+  border-radius: 1rem;
+  border-style:ridge;
+  border-color: #35474e;
+  transition: all 1s ease-in-out;
+}
+
+.popup{
+  background-color: #C0D6DF;
+  border: #35474e;
+  padding: 1rem;
+  border-radius: 1rem;
+  border-style: solid;
+}
