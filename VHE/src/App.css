@@ -41,19 +41,20 @@ body{
 
 .Canvas{
   margin:auto;
-  max-width: 95%;
+  max-width: 98%;
   border-radius: 1rem;
   background-color: #758BFD;
   position: relative;
   padding-top: 50rem;
   margin-top: 2rem;
   z-index: -1;
+  transition: all 1s ease-in-out;
 }
 
 .Toolbox{
   background-color: #166088;
   margin:auto;
-  max-width: 95%;
+  max-width: 98%;
   border-radius: 1rem;
   position: relative;
   padding-top: 20rem;

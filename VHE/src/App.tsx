@@ -10,10 +10,13 @@ function App() {
 
   return (
     <>
-      <RadioCollection count={4} tile_mode={tile_mode.RIGHT} />
-
+      <RadioCollection count={3} tile_mode={tile_mode.RIGHT} />
       <MovableItem
         id={"move1"}
+        minX={100}
+        minY={100}
+        maxX={800}
+        maxY={400}
         content={
           <div
             className={"move1"}
@@ -32,6 +35,10 @@ function App() {
       />
       <MovableItem
         id={"move2"}
+        minX={100}
+        minY={100}
+        maxX={800}
+        maxY={400}
         content={
           <div
             className={"move2"}

@@ -6,6 +6,10 @@ let IdOfDraggedProp: string = "";
 interface Prop {
   id: string;
   content: JSX.Element;
+  minX: number;
+  minY: number;
+  maxX: number;
+  maxY: number;
 }
 
 function getFromLinks(id: string) {
@@ -22,7 +26,7 @@ export default function MovableItem(props: Prop) {
   const mouse = GetMouse();
   const isDraggedProp: boolean = IdOfDraggedProp == props.id;
 
-  const noIdDragged: boolean = IdOfDraggedProp == ""
+  const noIdDragged: boolean = IdOfDraggedProp == "";
 
   if (!ids.includes(props.id)) {
     ids.push(props.id);
@@ -30,64 +34,56 @@ export default function MovableItem(props: Prop) {
   }
 
   if (mouse.target != null) {
-
     if (!mouse.pressed && isDraggedProp) {
       IdOfDraggedProp = "";
     }
 
-    if (
-      mouse.target.className == props.id &&
-      mouse.pressed &&
-      noIdDragged
-    ) {
+    if (mouse.target.className == props.id && mouse.pressed && noIdDragged) {
       IdOfDraggedProp = props.id;
     }
-    
+
     if (isDraggedProp) {
       getFromLinks(props.id).setToCurrentMouse(mouse);
     }
+  }
 
-}
+  const x_moving = valueOrBounds(mouse.xPos, props.minX, props.maxX);
+  const y_moving = valueOrBounds(mouse.yPos, props.minY, props.maxY);
+  const x_stationary = valueOrBounds(
+    getFromLinks(props.id).x,
+    props.minX,
+    props.maxX
+  );
+  const y_stationary = valueOrBounds(
+    getFromLinks(props.id).y,
+    props.minY,
+    props.maxY
+  );
 
   return (
     <section>
-      {isDraggedProp ? (
-        // If the prop is being dragged, the mouse position is used directly
-        <div
-          className={props.id}
-          style={{
-            position: "absolute",
-            left: `${mouse.xPos}px`,
-            top: `${mouse.yPos}px`,
-            userSelect: "none",
-            padding: "1rem",
-            margin: "-5rem",
-            transition: "all",
-            cursor: "grabbing",
-          }}
-        >
-          {props.content}
-        </div>
-      ) : (
-        // Else the position is taken from the lastPoses array
-        <div
-          className={props.id}
-          style={{
-            position: "absolute",
-            left: `${getFromLinks(props.id).x}px`,
-            top: `${getFromLinks(props.id).y}px`,
-            padding: "1rem",
-            userSelect: "none",
-            margin: "-5rem",
-            transition: "all",
-            cursor: "grab",
-          }}
-        >
-          {props.content}
-        </div>
-      )}
+      <div
+        className={props.id}
+        style={{
+          position: "absolute",
+          left: `${isDraggedProp ? x_moving : x_stationary}px`,
+          top: `${isDraggedProp ? y_moving : y_stationary}px`,
+          userSelect: "none",
+          padding: "1rem",
+          margin: "-5rem",
+          transition: "all",
+          cursor: `${isDraggedProp ? "grabbing" : "grab"}`,
+        }}
+      >
+        {props.content}
+      </div>
     </section>
   );
+}
+
+function valueOrBounds(value: number, min: number, max: number) {
+  // Returns the value if it is between the min and max. If it is outside the min and max it gives you the corresponding boundry
+  return value < min ? min : value > max ? max : value;
 }
 
 class PositionLink {
@@ -107,7 +103,6 @@ class PositionLink {
     this.y = mouse.yPos;
   }
 }
-
 
 /* ----------------------------------------------Usage of MovableItem ---------------------------------------------*/
 /*                                                                                                                 */
