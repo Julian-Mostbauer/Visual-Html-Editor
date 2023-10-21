@@ -1,4 +1,5 @@
 import GetMouse, { MouseInfoSave } from "./mouseTracker";
+import React, { useState, useEffect, useRef } from 'react';
 
 const ids: string[] = [];
 const lastPoses: PositionLink[] = [];
@@ -47,22 +48,40 @@ export default function MovableItem(props: Prop) {
     }
   }
 
-  const x_moving = valueOrBounds(mouse.xPos, props.minX, props.maxX);
-  const y_moving = valueOrBounds(mouse.yPos, props.minY, props.maxY);
+///////////////////////////////////////////
+
+const refContainer = useRef<HTMLElement>(null);;
+    const [dimensions, setDimensions] =
+        useState({ width: 0, height: 0 });
+    useEffect(() => {
+        if (refContainer.current) {
+            setDimensions({
+                width: refContainer.current.offsetWidth,
+                height: refContainer.current.offsetHeight,
+            });
+        }
+    }, []);
+
+  
+///////////////////////////////////////////
+
+const x_moving = valueOrBounds(mouse.xPos, props.minX, props.maxX - dimensions.width / 1.14);
+  const y_moving = valueOrBounds(mouse.yPos, props.minY, props.maxY - dimensions.height*1.5);
   const x_stationary = valueOrBounds(
     getFromLinks(props.id).x,
     props.minX,
-    props.maxX
+    props.maxX - dimensions.width/ 1.14
   );
   const y_stationary = valueOrBounds(
     getFromLinks(props.id).y,
     props.minY,
-    props.maxY
+    props.maxY - dimensions.height*1.5
   );
 
   return (
     <section>
       <div
+        ref={refContainer}
         className={props.id}
         style={{
           position: "absolute",
@@ -75,7 +94,7 @@ export default function MovableItem(props: Prop) {
           cursor: `${isDraggedProp ? "grabbing" : "grab"}`,
         }}
       >
-        {props.content}
+        {props.content} {dimensions.width} {dimensions.height}
       </div>
     </section>
   );
