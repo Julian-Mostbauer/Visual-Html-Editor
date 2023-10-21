@@ -21,7 +21,6 @@ import getMouse from "./mouseTracker";
 const ids: string[] = [];
 const lastPoses: PositionLink[] = [];
 let dragging: string = "";
-
 interface Prop {
     id: string;
     content: JSX.Element;
@@ -33,6 +32,8 @@ function getFromLinks(id: string) {
             return lastPoses[i];
         }
     }
+    console.log("ERROR : INVALID ID - FROM FUNCTION getFromLinks()")
+    return new PositionLink(-100, -100, "")
 }
 
 export default function MovableItem(props: Prop) {
@@ -56,23 +57,20 @@ export default function MovableItem(props: Prop) {
         getFromLinks(props.id).y = mouse.yPos;
     }
 
-    if (dragging == props.id) {
-        return (
-            <section>
-                <div className={props.id} style={{ position: "absolute", left: `${mouse.xPos}px`, top: `${mouse.yPos}px`, userSelect: "none", padding: "1rem", margin: "-5rem", transition: "all", cursor: "grabbing"}}>
-                    {props.content}
-                </div>
-            </section>
-        );
-    } else {
-        return (
-            <section>
-                <div className={props.id} style={{ position: "absolute", left: `${getFromLinks(props.id).x}px`, top: `${getFromLinks(props.id).y}px`, padding: "1rem", userSelect: "none", margin: "-5rem", transition: "all", cursor: "grab"}}>
-                    {props.content}
-                </div>
-            </section>
-        );
-    }
+    return (
+        <section>
+            {(dragging == props.id) ? 
+            <div className={props.id} style={{ position: "absolute", left: `${mouse.xPos}px`, top: `${mouse.yPos}px`, userSelect: "none", padding: "1rem", margin: "-5rem", transition: "all", cursor: "grabbing"}}>
+                {props.content}
+            </div>
+            :
+            <div className={props.id} style={{ position: "absolute", left: `${getFromLinks(props.id).x}px`, top: `${getFromLinks(props.id).y}px`, padding: "1rem", userSelect: "none", margin: "-5rem", transition: "all", cursor: "grab"}}>
+                {props.content}
+            </div>
+            }
+        </section>
+    );
+    
 }
 
 class PositionLink {
