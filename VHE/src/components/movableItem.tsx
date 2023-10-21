@@ -1,4 +1,4 @@
-import getMouse, { MouseInfoSave } from "./mouseTracker";
+import GetMouse, { MouseInfoSave } from "./mouseTracker";
 
 const ids: string[] = [];
 const lastPoses: PositionLink[] = [];
@@ -19,7 +19,7 @@ function getFromLinks(id: string) {
 }
 
 export default function MovableItem(props: Prop) {
-  const mouse = getMouse();
+  const mouse = GetMouse();
   const isDraggedProp: boolean = IdOfDraggedProp == props.id;
 
   const noIdDragged: boolean = IdOfDraggedProp == ""

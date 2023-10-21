@@ -13,7 +13,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function getMouse() {
+export default function GetMouse() {
 
     const [mouseX, setMouseX] = useState(0);
     const [mouseY, setMouseY] = useState(0);
