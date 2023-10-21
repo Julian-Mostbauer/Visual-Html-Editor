@@ -1,5 +1,5 @@
 import GetMouse, { MouseInfoSave } from "./mouseTracker";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
 const ids: string[] = [];
 const lastPoses: PositionLink[] = [];
@@ -48,34 +48,40 @@ export default function MovableItem(props: Prop) {
     }
   }
 
-///////////////////////////////////////////
+  ///////////////////////////////////////////
 
-const refContainer = useRef<HTMLElement>(null);
-    const [dimensions, setDimensions] =
-        useState({ width: 0, height: 0 });
-    useEffect(() => {
-        if (refContainer.current) {
-            setDimensions({
-                width: refContainer.current.offsetWidth,
-                height: refContainer.current.offsetHeight,
-            });
-        }
-    }, []);
+  const refContainer = useRef<HTMLElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  useEffect(() => {
+    if (refContainer.current) {
+      setDimensions({
+        width: refContainer.current.offsetWidth,
+        height: refContainer.current.offsetHeight,
+      });
+    }
+  }, []);
 
-  
-///////////////////////////////////////////
+  ///////////////////////////////////////////
 
-const x_moving = valueOrBounds(mouse.xPos, props.minX, props.maxX - dimensions.width / 1.14);
-  const y_moving = valueOrBounds(mouse.yPos, props.minY, props.maxY - dimensions.height*1.5);
+  const x_moving = valueOrBounds(
+    mouse.xPos,
+    props.minX,
+    props.maxX - dimensions.width / 1.14
+  );
+  const y_moving = valueOrBounds(
+    mouse.yPos,
+    props.minY,
+    props.maxY - dimensions.height * 1.5
+  );
   const x_stationary = valueOrBounds(
     getFromLinks(props.id).x,
     props.minX,
-    props.maxX - dimensions.width/ 1.14
+    props.maxX - dimensions.width / 1.14
   );
   const y_stationary = valueOrBounds(
     getFromLinks(props.id).y,
     props.minY,
-    props.maxY - dimensions.height*1.5
+    props.maxY - dimensions.height * 1.5
   );
 
   return (
