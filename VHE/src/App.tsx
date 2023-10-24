@@ -34,8 +34,6 @@ function App() {
     <>
       <RadioCollection count={3} tile_mode={tile_mode.RIGHT} />
 
-      
-
       <MovableItem
         id={"move1"}
         minX={canvasMinX}
