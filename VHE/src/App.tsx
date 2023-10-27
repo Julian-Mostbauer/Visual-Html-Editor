@@ -19,17 +19,13 @@ function App() {
   const canvasMaxX = windowDimension.xLen
   const canvasMaxY = windowDimension.yLen
 
-
-  /*
-  This currently breakes the movable item for some reason, but otherwise works
-  <OutputPopup 
-      text="Compile"
-      content={
-        <h1>test</h1>
-  }/>
-
-  */
-
+  
+  //<OutputPopup 
+  //    text="Compile"
+  //    content={
+  //      <h1>test</h1>
+  //}/>
+  
   return (
     <>
       <RadioCollection count={3} tile_mode={tile_mode.RIGHT} />
