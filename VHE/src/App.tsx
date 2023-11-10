@@ -18,7 +18,7 @@ function App() {
   const canvasMinY = 14 * 16 //Position of the canvas
   const canvasMaxX = windowDimension.xLen
   const canvasMaxY = windowDimension.yLen
-
+  
   
   //<OutputPopup 
   //    text="Compile"
