@@ -13,14 +13,17 @@ interface Prop {
   maxY: number;
 }
 
-function getFromLinks(id: string) {
+function getFromLinks(id: string): [PositionLink?, Error?] {
   for (let i = 0; i < lastPoses.length; i++) {
     if (lastPoses[i].id == id) {
-      return lastPoses[i];
+      return [lastPoses[i], undefined];
     }
   }
-  console.log("ERROR : INVALID ID - FROM FUNCTION getFromLinks()");
-  return new PositionLink(-100, -100, "");
+
+  return [
+    undefined,
+    new Error("ERROR : INVALID ID - FROM FUNCTION getFromLinks()"),
+  ];
 }
 
 export default function MovableItem(props: Prop) {
@@ -44,7 +47,8 @@ export default function MovableItem(props: Prop) {
     }
 
     if (isDraggedProp) {
-      getFromLinks(props.id).setToCurrentMouse(mouse);
+      const [res, err] = getFromLinks(props.id);
+      if (err == undefined) res!.setToCurrentMouse(mouse);
     }
   }
 
@@ -63,6 +67,9 @@ export default function MovableItem(props: Prop) {
 
   ///////////////////////////////////////////
 
+  const [res, err] = getFromLinks(props.id);
+  if (err != undefined) throw(err)
+  
   const x_moving = valueOrBounds(
     mouse.xPos,
     props.minX,
@@ -74,12 +81,12 @@ export default function MovableItem(props: Prop) {
     props.maxY - dimensions.height * 1.5
   );
   const x_stationary = valueOrBounds(
-    getFromLinks(props.id).x,
+    res!.x,
     props.minX,
     props.maxX - dimensions.width / 1.14
   );
   const y_stationary = valueOrBounds(
-    getFromLinks(props.id).y,
+    res!.y,
     props.minY,
     props.maxY - dimensions.height * 1.5
   );

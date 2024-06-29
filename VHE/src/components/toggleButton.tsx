@@ -1,5 +1,7 @@
+import { MouseEventHandler } from "react";
+
 interface Prop {
-  func: Function;
+  func: MouseEventHandler<HTMLButtonElement>;
   style: string;
   state: boolean;
 }
