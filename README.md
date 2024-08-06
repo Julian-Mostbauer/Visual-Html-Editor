@@ -1,5 +1,4 @@
 # Visual Html Editor
- 
-## About
-This Project was made to build a tool, similar in function and disign to the .net form editor in VS for a html page.
-The site uses React + Bootstrap, bundled by vite. 
+
+# ARCHIEVED
+Check out the new version https://github.com/Julian-Mostbauer/Neo-VHE
